@@ -300,7 +300,7 @@ Change global loudness. Send float value. Volume of individual players is not af
 
     /pyBinSimLoudness {loudness: float32}
 
-Apply a distance factor to the DS component. Send float value.::
+Apply a distance factor to the DS component. Send float value. Volume of individual players is not affected.::
 
     /pyBinSimLoudness {loudness: float32}
 
