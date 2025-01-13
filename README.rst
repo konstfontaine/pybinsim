@@ -302,7 +302,7 @@ Change global loudness. Send float value. Volume of individual players is not af
 
 Apply a distance factor to the DS component. Send float value. Volume of individual players is not affected.::
 
-    /pyBinSimLoudness {loudness: float32}
+    /pyBinSimDistance {distance: float32}
 
 Create a new player. Players can play back files independent from each other. A
 player's output is sent to the start channel and consecutive channels, up to the
