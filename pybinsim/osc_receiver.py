@@ -59,7 +59,6 @@ class OscReceiver(PkgReceiver):
         osc_dispatcher_ds.map("/pyBinSim_ds_Filter_sourceOrientation", self.handle_ds_filter_input)
         osc_dispatcher_ds.map("/pyBinSim_ds_Filter_sourcePosition", self.handle_ds_filter_input)
 
-
         osc_dispatcher_early = dispatcher.Dispatcher()
         osc_dispatcher_early.map("/pyBinSim_early_Filter", self.handle_early_filter_input)
         osc_dispatcher_early.map("/pyBinSim_early_Filter_Short", self.handle_early_filter_input)
@@ -84,6 +83,7 @@ class OscReceiver(PkgReceiver):
         osc_dispatcher_misc.map("/pyBinSimPauseConvolution", self.handle_convolution_pause)
         osc_dispatcher_misc.map("/pyBinSim_sd_Filter", self.handle_sd_filter_input)
         osc_dispatcher_misc.map("/pyBinSimLoudness", self.handle_loudness)
+        osc_dispatcher_misc.map("/pyBinSimDistance", self.handle_distance)
         osc_dispatcher_misc.map("/pyBinSimPlay", self.handle_play)
         osc_dispatcher_misc.map("/pyBinSimPlayerControl", self.handle_player_control)
         osc_dispatcher_misc.map("/pyBinSimPlayerChannel", self.handle_player_channel)
@@ -140,5 +140,3 @@ class OscReceiver(PkgReceiver):
         self.server2.shutdown()
         self.server3.shutdown()
         self.server4.shutdown()
-
-    

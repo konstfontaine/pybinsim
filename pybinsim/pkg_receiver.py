@@ -141,7 +141,7 @@ class PkgReceiver(object):
         if len(args) == len(self.valueList_late_filter[current_channel, key_slice]):
 
             if all(args == self.valueList_late_filter[current_channel, key_slice]):
-                self.log.debug("Same late  filter as before")
+                self.log.debug("Same late filter as before")
             else:
                 self.late_filters_updated[current_channel] = True
                 self.valueList_late_filter[current_channel, key_slice] = args
@@ -284,6 +284,13 @@ class PkgReceiver(object):
 
         self.currentConfig.set('loudnessFactor', float(value))
         self.log.info("Changing loudness")
+    
+    def handle_distance(self, identifier, value):
+        """ Handler for distance control"""
+        assert identifier == "/pyBinSimDistance"
+
+        self.currentConfig.set('distanceFactor', float(value))
+        # self.log.info(f"Distance Factor set to: {value}")
 
     def is_ds_filter_update_necessary(self, channel):
         """ Check if there is a new direct filter for channel """

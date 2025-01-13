@@ -61,6 +61,8 @@ class ZmqReceiver(PkgReceiver):
             "/pyBinSim_late_Filter_Custom": self.handle_late_filter_input,
             # source directivity
             "/pyBinSim_sd_Filter": self.handle_sd_filter_input,
+            # distance factor
+            "pyBinSimDistance": self.handle_distance,
             # other
             "/pyBinSimFile": self.handle_file_input,
             "/pyBinSimPlay": self.handle_play,

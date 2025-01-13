@@ -248,12 +248,17 @@ When you want to apply a late filter::
 When you want to play another sound file you send::
 
     ZMQ:    ['/pyBinSimFile', 'folder/file_new.wav']
-    OSC:    /pyBinSimFile 'folder/file_new.wav']
+    OSC:    /pyBinSimFile 'folder/file_new.wav'
 
 If you want to play a sound file list::
 
     ZMQ:    ['/pyBinSimFile', 'folder/file_1.wav#folder/file_2.wav']
-    OSC:    /pyBinSimFile 'folder/file_1.wav#folder/file_2.wav']
+    OSC:    /pyBinSimFile 'folder/file_1.wav#folder/file_2.wav'
+
+If you want to apply a distance factor to the direct sound::
+
+    ZMQ:    ['/pyBinSimDistance', 1.0]
+    OSC:    /pyBinSimDistance 1.0
 
 The audiofile has to be located on the pc where pyBinSim runs. Files are not transmitted over network.
 
@@ -292,6 +297,10 @@ Bypass convolution. Send 'True' or 'False' (as string, not bool)::
     /pybinsimPauseConvolution {pauseConvolution: string["True"|"False"]}
 
 Change global loudness. Send float value. Volume of individual players is not affected.::
+
+    /pyBinSimLoudness {loudness: float32}
+
+Apply a distance factor to the DS component. Send float value.::
 
     /pyBinSimLoudness {loudness: float32}
 

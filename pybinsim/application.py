@@ -59,6 +59,7 @@ class BinSimConfig(object):
                                   'useHeadphoneFilter': False,
                                   'headphone_filterSize': 1024,
                                   'loudnessFactor': float(1),
+                                  'distanceFactor': float(1),
                                   'maxChannels': 8,
                                   'samplingRate': 48000,
                                   'loopSound': True,
@@ -297,6 +298,8 @@ def audio_callback(binsim):
         #binsim.current_config = binsim.oscReceiver.get_current_config()
         binsim.current_config = binsim.pkgReceiver.get_current_config()
 
+        distance = binsim.current_config.get('distanceFactor')
+
         amount_channels = binsim.current_config.get('maxChannels')
         if amount_channels == 0:
             return
@@ -363,7 +366,10 @@ def audio_callback(binsim):
             if callback.config.get('sd_convolverActive'):
                 sd_buffer = binsim.input_BufferSD.process(ds[:,0,:])
                 ds = binsim.sd_convolver.process(sd_buffer) # let's keep the name "ds" for now
-                 
+
+            # apply distance factor to ds block
+            ds *= distance
+
             early = binsim.early_convolver.process(input_buffers)
             late = binsim.late_convolver.process(input_buffers)
 
